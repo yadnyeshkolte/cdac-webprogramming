@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+
+#section1{
+    background-color: aquamarine;
+    height: 100vh;
+}
+.sign-form{
+    background-color: red;
+    position: relative;
+    max-width: 30%;
+    left: 35%;
+    top: 10%;
+    display: flex;
+}
+
+.form-index{
+    align-content: center;
+}
+
