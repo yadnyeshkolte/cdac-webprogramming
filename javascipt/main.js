@@ -1,5 +1,7 @@
-let arr = new Array(10);
-for (let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(10);
-}  
-console.log(arr);
+let arr = [1,11,22,3,33,"Yandyesh","Ojaswi",true, false];
+
+console.log(arr)
+
+arr.sort();
+
+console.log(arr)
