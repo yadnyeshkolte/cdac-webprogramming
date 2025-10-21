@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="https://yadnyeshkolte.github.io/assets/yadnyesh-_4n0JEPz.jpg" alt="Profile Picture" class="profile-img">
+        <p>Motivated Software Engineer with expertise in developing and deploying high-quality solutions. Proficient in full stack development, AI integration, and continuous delivery</p>
+        
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9m9UTx8AkoI?si=J3fCySTA_VEA0N4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bachelor of Technology</td>
+                    <td>VNIT</td>
+                    <td>2021-2025</td>
+                    <td>5.12 CGPA</td>
+                </tr>
+                <tr>
+                    <td>Higher Secondary (12th)</td>
+                    <td>Babasaheb Utanglel</td>
+                    <td>2019-2021</td>
+                    <td>80.2%</td>
+                </tr>
+                <tr>
+                    <td>Secondary (10th)</td>
+                    <td>Bramhan Sabha</td>
+                    <td>2019</td>
+                    <td>94%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <article>
+            <h3>CrossDocs</h3>
+            <p>A lightweight cross-platform Markdown editor with real-time preview and AI assistance, built for developers using Compose Multiplatform.</p>
+            <a href="https://github.com/yadnyeshkolte/CrossDocs" target="_blank">View on GitHub →</a>
+        </article>
+
+        <article>
+            <h3>A secure API system</h3>
+            <p>A secure API system built for the Impossible Missions Force (IMF) to manage their high-tech gadget inventory. This project includes a Node.js/Express backend API with PostgreSQL database and JWT authentication.</p>
+            <a href="https://github.com/yadnyeshkolte/imf-gadgets-api" target="_blank">View on GitHub →</a>
+        </article>
+
+        <article>
+            <h3>Gradle Plugin</h3>
+            <p>Gradle Plugin to analyze your projects</p>
+            <a href="https://github.com/yadnyeshkolte/kotlin-structure-analyzer-plugin" target="_blank">View on GitHub →</a>
+        </article>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
