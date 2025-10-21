@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Skill Manager</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <span class="skill-label">Skill</span>
+            <input type="text" class="skill-input" id="skillInput" placeholder="Enter Skill">
+            <button class="add-btn" id="addBtn">Add</button>
+        </div>
+
+        <div class="skills-container">
+            <div class="skills-list" id="skillsList"></div>
+        </div>
+    </div>
+
+    <script>
+        const skillInput = document.getElementById('skillInput');
+        const addBtn = document.getElementById('addBtn');
+        const skillsList = document.getElementById('skillsList');
+        let skills = [];
+
+        function addSkill() {
+            const skillValue = skillInput.value.trim();
+            
+            if (skillValue === '') {
+                alert('Please enter a skill!');
+                return;
+            }
+
+            if (skills.includes(skillValue)) {
+                alert('This skill already exists!');
+                return;
+            }
+
+            skills.push(skillValue);
+            renderSkills();
+            skillInput.value = '';
+            skillInput.focus();
+        }
+
+        function removeSkill(skillToRemove) {
+            skills = skills.filter(skill => skill !== skillToRemove);
+            renderSkills();
+        }
+
+        function renderSkills() {
+            skillsList.innerHTML = '';
+            
+            skills.forEach(skill => {
+                const skillTag = document.createElement('div');
+                skillTag.className = 'skill-tag';
+                
+                const skillText = document.createElement('span');
+                skillText.textContent = skill;
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-btn';
+                removeBtn.innerHTML = '✕';
+                removeBtn.onclick = () => removeSkill(skill);
+                
+                skillTag.appendChild(skillText);
+                skillTag.appendChild(removeBtn);
+                skillsList.appendChild(skillTag);
+            });
+        }
+
+        addBtn.addEventListener('click', addSkill);
+
+        skillInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addSkill();
+            }
+        });
+        renderSkills();
+    </script>
+</body>
+</html>
