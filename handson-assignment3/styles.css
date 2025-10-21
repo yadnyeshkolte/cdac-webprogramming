@@ -1,3 +1,10 @@
 #myForm{
     background-color: lightblue;
+    border-radius: 20px;
+}
+#myforms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
