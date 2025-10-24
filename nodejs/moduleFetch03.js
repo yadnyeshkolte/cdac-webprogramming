@@ -13,8 +13,9 @@ module.exports = (function(){
         cart.shift();
     }
     function removeitem(item){
-        const index = cart.findIndex(item)
-        cart.splice(index,1);
+        const index = cart.findIndex(e => e.id === item.id);
+        console.log("Index to remove:", index);
+        cart.splice(index, 1);
     }
     return{
         additems, viewitems, removefirstitem, removeitem

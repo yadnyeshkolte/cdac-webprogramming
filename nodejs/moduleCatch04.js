@@ -19,4 +19,6 @@ shopcart.viewitems();
 
 shopcart.removeitem({id:105, name:"Acer", price:40000})
 
+shopcart.viewitems();
+
 console.log("===================================");
