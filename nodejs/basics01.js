@@ -29,3 +29,10 @@ array.forEach((value, key) => {
 })
 
 console.log("Ended")
+
+
+console.log(array.shift()) //to remove the first item
+console.log(array)
+
+console.log(array.unshift("car0")) //to add the items at the starting
+console.log(array)
