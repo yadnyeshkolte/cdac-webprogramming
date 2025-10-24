@@ -22,3 +22,7 @@ fs.writeFileSync('sample.txt', 'This created by javascript nodejs fs module','ut
 
 const data = fs.readFileSync('sample.txt','utf-8');
 console.log("File Content:", data);
+
+fs.appendFileSync('sample.txt','\n This the new line added thought node js','utf-8');
+const newdata = fs.readFileSync('sample.txt','utf-8');
+console.log("Updated File Content:\n", newdata);

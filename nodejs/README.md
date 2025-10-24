@@ -10,6 +10,80 @@
 3. It internally maintains a thread loop where operations are piped into the loop and each operation executes asynchronously. 
 4. There shall be no blocking thread in Nodejs. So no UI based Functions that blocks the Application are allowed in Nodejs
 
+Here's a list of **Node.js built-in modules** with async functions:
+
+## **fs (File System)**
+- `fs.readFile()` / `fs.promises.readFile()`
+- `fs.writeFile()` / `fs.promises.writeFile()`
+- `fs.appendFile()` / `fs.promises.appendFile()`
+- `fs.readdir()` / `fs.promises.readdir()`
+- `fs.mkdir()` / `fs.promises.mkdir()`
+- `fs.rmdir()` / `fs.promises.rmdir()`
+- `fs.unlink()` / `fs.promises.unlink()`
+- `fs.rename()` / `fs.promises.rename()`
+- `fs.stat()` / `fs.promises.stat()`
+- `fs.access()` / `fs.promises.access()`
+- `fs.copyFile()` / `fs.promises.copyFile()`
+- `fs.open()` / `fs.promises.open()`
+
+## **dns (Domain Name System)**
+- `dns.lookup()`
+- `dns.resolve()`, `dns.resolve4()`, `dns.resolve6()`
+- `dns.reverse()`
+- `dns.promises.lookup()`, `dns.promises.resolve()`, etc.
+
+## **crypto (Cryptography)**
+- `crypto.randomBytes()`
+- `crypto.pbkdf2()`
+- `crypto.scrypt()`
+- `crypto.generateKeyPair()`
+
+## **child_process (Child Processes)**
+- `child_process.exec()`
+- `child_process.execFile()`
+- `child_process.spawn()` (returns streams - async)
+- `child_process.fork()`
+
+## **http/https (HTTP/HTTPS)**
+- `http.request()`
+- `http.get()`
+- `https.request()`
+- `https.get()`
+
+## **net (Networking)**
+- `net.createServer()` (connection events)
+- `net.createConnection()`
+- `socket.connect()`
+
+## **timers (Timers)**
+- `setTimeout()`
+- `setInterval()`
+- `setImmediate()`
+- `timers/promises` module: `setTimeout()`, `setInterval()`, `setImmediate()` (Promise-based)
+
+## **stream (Streams)**
+- `stream.pipeline()`
+- `stream.finished()`
+- All readable/writable stream operations
+
+## **zlib (Compression)**
+- `zlib.gzip()` / `zlib.promises.gzip()`
+- `zlib.gunzip()` / `zlib.promises.gunzip()`
+- `zlib.deflate()`, `zlib.inflate()`, etc.
+
+## **readline (Read Line)**
+- `readline.createInterface()` (line-by-line reading with events)
+
+## **worker_threads (Worker Threads)**
+- `Worker` class (message passing)
+- `worker.postMessage()`
+
+## **dgram (UDP/Datagram)**
+- `socket.send()`
+- `socket.bind()`
+
+**Note**: Most modules have both **callback-based** versions and **Promise-based** versions (under `moduleName.promises` or using `util.promisify()`).
+
 In JavaScript, there are **4 main types of for loops**:
 
 ### 1. **Traditional for loop**
