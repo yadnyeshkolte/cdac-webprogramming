@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "yadnyesh",
+        "city": "pune"
+    },
+    {
+        "id": 2,
+        "name": "amol",
+        "city": "mumbai"
+    },
+    {
+        "id": 3,
+        "name": "sachin",
+        "city": "nagpur"
+    },
+    {
+        "id": 4,
+        "name": "rahul",
+        "city": "nashik"
+    },
+    {
+        "id": 5,
+        "name": "rohan",
+        "city": "solapur"
+    }
+]
