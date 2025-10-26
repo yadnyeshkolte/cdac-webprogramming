@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        nav h1 {
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .error-container {
+            text-align: center;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .error-code {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .error-message {
+            background: #f4f4f4;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            text-align: left;
+            color: #555;
+        }
+        
+        .error-suggestions {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .error-suggestions h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .error-suggestions ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+        
+        .error-suggestions li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .error-suggestions li:before {
+            content: "→ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 3rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>My Website</h1>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/aboutme">About Me</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/ppolicy">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="error-container">
+            <div class="error-icon">⚠️</div>
+            
+            <div class="error-code">404</div>
+            
+            <h1 class="error-title">Page Not Found</h1>
+            
+            <p class="error-description">
+                Oops! The page you're looking for doesn't exist or has been moved.
+            </p>
+            
+            <div class="error-message">
+                <strong>Error Details:</strong> The requested URL could not be found on this server. This might be a temporary issue or the page has been permanently removed.
+            </div>
+            
+            <div class="error-suggestions">
+                <h3>What You Can Do:</h3>
+                <ul>
+                    <li>Check if the URL is spelled correctly</li>
+                    <li>Try going back to the previous page</li>
+                    <li>Visit our homepage to start fresh</li>
+                    <li>Use the navigation menu above to find what you need</li>
+                    <li>Contact us if you believe this is an error</li>
+                </ul>
+            </div>
+            
+            <div class="button-group">
+                <a href="/home" class="btn btn-primary">Go to Home</a>
+                <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My Website. All rights reserved. | <a href="/ppolicy">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
