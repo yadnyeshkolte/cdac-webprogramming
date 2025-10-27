@@ -1,0 +1,16 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "- Express is a third Party Module that used to create real time web applications as per the industry standards.\r - Express helps in creating robust applications based on modren UI patterns like MVC, MVP and use to make Modular app development on Web. \r - We need to use node package manager(NPM) to install Express locally and then  use the APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

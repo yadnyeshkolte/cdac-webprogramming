@@ -21,3 +21,6 @@ function printingData(data){
     console.log("The fetched data is "+JSON.stringify(data))
     //console.log(data)
 }
+
+
+
