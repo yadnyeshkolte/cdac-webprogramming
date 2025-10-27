@@ -69,13 +69,19 @@ app.post('/api/contact', (req, res) => {
     })
 })
 
-/*
-app.delete('/api/delete?:id', (req, res) => {
-    const givenid = req.params.id
-    db.query(givenid, () => {
 
+app.delete('/api/contact/delete/:id', (req, res) => {
+    const givenid = req.params.id
+    db.query(deletecontent, givenid, (error, results) => {
+        if(error){
+            console.error("Error: "+error)
+            res.status(500).json({error: "Internal Server Error"})
+            return
+        }
+        //res.json(results)
+        res.json({message:"Internal Server Error"})
     })
-})*/
+})
 
 
 
