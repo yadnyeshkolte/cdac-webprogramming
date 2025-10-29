@@ -10,7 +10,8 @@ function Calculatorlogic(){
     const getResult = () =>  {
         switch(operand){
             case '+':
-                setResult(first+second);
+                setResult(parseFloat(first)+parseFloat(second))
+                //setResult(first+second);
                 break;
             case '-':
                 setResult(first-second);
