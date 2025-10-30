@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^3.1.0",
+    "@lineiconshq/free-icons": "^1.0.3",
+    "@lineiconshq/react-lineicons": "^1.0.5",
     "bootstrap": "^5.3.8",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

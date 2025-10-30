@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { EmployeeData } from "../Classes/EmployeeData";
 
 function DashBoardNav(){
+    const [employee, setemployees] = useState(EmployeeData.getAll());
     return(
         <>
         
@@ -61,6 +63,7 @@ function DashBoardNav(){
                                 class="form-control me-sm-2"
                                 type="text"
                                 placeholder="Search"
+                                
                             />
                             <button
                                 class="btn btn-outline-success my-2 my-sm-0"
