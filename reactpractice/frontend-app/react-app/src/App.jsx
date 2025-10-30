@@ -1,6 +1,6 @@
 
 import './App.css'
-import EmpApp from "./Components/empApp"
+import EmpApp from "./Components/EmpApp.jsx"
 function App() {
 
   return (

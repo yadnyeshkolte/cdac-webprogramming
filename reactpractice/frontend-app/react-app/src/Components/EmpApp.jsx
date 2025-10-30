@@ -10,8 +10,8 @@ export default function EmpApp() {
     return(
         <>
             <div>
-                <table>
-                    <thead>
+                <table className="table table-border table-stiped text-center">
+                    <thead className="table-bg-dark table-dark">
                         <td>Emp: Id</td>
                         <td>Employee Name</td>
                         <td>Address</td>
@@ -60,6 +60,10 @@ export default function EmpApp() {
                 </div>
                 
             </div>
+
+            
+            
+            
         </>
     ) 
 }
