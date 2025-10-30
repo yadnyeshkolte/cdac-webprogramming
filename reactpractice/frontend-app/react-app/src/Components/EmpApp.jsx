@@ -3,67 +3,103 @@ import { EmployeeService } from "../Services/EmployeeService";
 
 export default function EmpApp() {
     const [records, setRecords] = useState([]);
-
+    const [emp, setEmp] = useState({ id: 0, name: "guest", address: "none", salary: 0 });
     useEffect(() => {
         EmployeeService.getAll().then(setRecords); //connect to backend and fetch the data to the records collection
     })
-    return(
+    function handleOnChangeAdd() {
+
+    }
+    return (
         <>
+            <div style={{ width: "50dvw" }}>
+                <div className="mb-1">
+                    <button
+                        type="button"
+                        class="btn btn-warning mx-1"
+                    >
+                        Add
+                    </button>
+                </div>
+                <div>
+
+                    <div class="mb-1">
+                        <input
+                            type="text"
+                            value={emp.id}
+                            onChange={(e) => setEmp({ ...emp, id: e.target.value })}
+                            class="form-control"
+                            placeholder="Enter the id"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <input
+                            type="text"
+                            value={emp.name}
+                            onChange={(e) => setEmp({ ...emp, name: e.target.value })}
+                            class="form-control"
+                            placeholder="Enter the Name"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <input
+                            type="text"
+                            value={emp.address}
+                            onChange={(e) => setEmp({ ...emp, address: e.target.value })}
+                            class="form-control"
+                            placeholder="Enter the Address"
+                        />
+                    </div>
+                    <div class="mb-1">
+                        <input
+                            type="text"
+                            value={emp.salary}
+                            onChange={(e) => setEmp({ ...emp, salary: e.target.value })}
+                            class="form-control"
+                            placeholder="Enter the Salary"
+                        />
+                    </div>
+
+                </div>
+            </div>
             <div>
-                <table className="table table-border table-stiped text-center">
-                    <thead className="table-bg-dark table-dark">
+                <table className="table table-primary table-responsive" style={{ width: "50dvw" }}>
+                    <thead style={{ backgroundColor: "aqua", textAlign: "center" }}>
                         <td>Emp: Id</td>
                         <td>Employee Name</td>
                         <td>Address</td>
                         <td>Salary</td>
+                        <td style={{ backgroundColor: "yellow" }}>Edit</td>
+                        <td style={{ backgroundColor: "#FF474C" }}>Delete</td>
+
                     </thead>
                     {
                         records.map((r) => {
-                            return(
-                                <tr>
+                            return (
+                                <tr style={{ textAlign: "center" }}>
                                     <td>{r.id}</td>
                                     <td>{r.name}</td>
                                     <td>{r.address}</td>
                                     <td>{r.salary}</td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button>
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                             )
                         })
                     }
                 </table>
-
-                <div
-                    class="table-responsive"
-                >
-                    <table
-                        class="table table-primary"
-                    >
-                        <thead>
-                            <tr>
-                                <th scope="col">Column 1</th>
-                                <th scope="col">Column 2</th>
-                                <th scope="col">Column 3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="">
-                                <td scope="row">R1C1</td>
-                                <td>R1C2</td>
-                                <td>R1C3</td>
-                            </tr>
-                            <tr class="">
-                                <td scope="row">Item</td>
-                                <td>Item</td>
-                                <td>Item</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
             </div>
 
-            
-            
-            
+
+
         </>
-    ) 
+    )
 }
