@@ -17,6 +17,12 @@
       "name": "Sharvari",
       "address": "Akola",
       "salary": 1000000
+    },
+    {
+      "id": 6,
+      "name": "Deepak",
+      "address": "Nashik",
+      "salary": 4000000
     }
   ]
 }

@@ -6,9 +6,20 @@ export default function EmpApp() {
     const [emp, setEmp] = useState({ id: 0, name: "guest", address: "none", salary: 0 });
     useEffect(() => {
         EmployeeService.getAll().then(setRecords); //connect to backend and fetch the data to the records collection
-    })
+    }, [])
     function handleOnChangeAdd() {
 
+        EmployeeService.addRec(emp);
+        setTimeout(() => {
+             EmployeeService.getAll().then(setRecords)
+        }, 100)
+       
+    }
+    function handleOnChangeDelete(id){
+        EmployeeService.deleteRec(id).then(() => {EmployeeService.getAll().then(setRecords)})
+        //for refreshing we are doing it 
+        // (() => {EmployeeService.getAll().then(setRecords)})
+        // if I dont have written that it will work but i have to refresh the page always
     }
     return (
         <>
@@ -16,46 +27,47 @@ export default function EmpApp() {
                 <div className="mb-1">
                     <button
                         type="button"
-                        class="btn btn-warning mx-1"
+                        className="btn btn-warning mx-1"
+                        onClick={handleOnChangeAdd}
                     >
                         Add
                     </button>
                 </div>
                 <div>
 
-                    <div class="mb-1">
+                    <div className="mb-1">
                         <input
                             type="text"
                             value={emp.id}
-                            onChange={(e) => setEmp({ ...emp, id: e.target.value })}
-                            class="form-control"
+                            onChange={(e) => setEmp({ ...emp, id: Number(e.target.value) })}
+                            className="form-control"
                             placeholder="Enter the id"
                         />
                     </div>
-                    <div class="mb-1">
+                    <div className="mb-1">
                         <input
                             type="text"
                             value={emp.name}
                             onChange={(e) => setEmp({ ...emp, name: e.target.value })}
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the Name"
                         />
                     </div>
-                    <div class="mb-1">
+                    <div className="mb-1">
                         <input
                             type="text"
                             value={emp.address}
                             onChange={(e) => setEmp({ ...emp, address: e.target.value })}
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the Address"
                         />
                     </div>
-                    <div class="mb-1">
+                    <div className="mb-1">
                         <input
                             type="text"
                             value={emp.salary}
-                            onChange={(e) => setEmp({ ...emp, salary: e.target.value })}
-                            class="form-control"
+                            onChange={(e) => setEmp({ ...emp, salary: Number(e.target.value) })}
+                            className="form-control"
                             placeholder="Enter the Salary"
                         />
                     </div>
@@ -64,42 +76,47 @@ export default function EmpApp() {
             </div>
             <div>
                 <table className="table table-primary table-responsive" style={{ width: "50dvw" }}>
-                    <thead style={{ backgroundColor: "aqua", textAlign: "center" }}>
-                        <td>Emp: Id</td>
-                        <td>Employee Name</td>
-                        <td>Address</td>
-                        <td>Salary</td>
-                        <td style={{ backgroundColor: "yellow" }}>Edit</td>
-                        <td style={{ backgroundColor: "#FF474C" }}>Delete</td>
-
+                    <thead style={{ textAlign: "center" }}>
+                        <tr>
+                        <th>Emp: Id</th>
+                        <th>Employee Name</th>
+                        <th>Address</th>
+                        <th>Salary</th>
+                        <th style={{ backgroundColor: "yellow" }}>Edit</th>
+                        <th style={{ backgroundColor: "#FF474C" }}>Delete</th>
+                        </tr>
                     </thead>
+                    <tbody>
                     {
                         records.map((r) => {
                             return (
-                                <tr style={{ textAlign: "center" }}>
+                                <tr key={r.id} style={{ textAlign: "center" }}>
                                     <td>{r.id}</td>
                                     <td>{r.name}</td>
                                     <td>{r.address}</td>
                                     <td>{r.salary}</td>
                                     <td>
                                         <button>
-                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            <i className="fa-solid fa-pen-to-square"></i>
                                         </button>
                                     </td>
                                     <td>
-                                        <button>
-                                            <i class="fa-solid fa-trash"></i>
+                                        <button
+                                            onClick={() => {handleOnChangeDelete(r.id)}}
+                                        >
+                                            <i className="fa-solid fa-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
                             )
                         })
                     }
+                    </tbody>
                 </table>
             </div>
-
-
-
+            <div>
+                
+            </div>
         </>
     )
 }
