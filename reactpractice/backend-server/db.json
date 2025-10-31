@@ -19,10 +19,16 @@
       "salary": 1000000
     },
     {
-      "id": 6,
-      "name": "Deepak",
-      "address": "Nashik",
-      "salary": 4000000
+      "id": "5",
+      "name": "Rushikesh",
+      "address": "Sangli",
+      "salary": 500000
+    },
+    {
+      "id": "7",
+      "name": "Hardik",
+      "address": "Delhi",
+      "salary": 400000
     }
   ]
 }
