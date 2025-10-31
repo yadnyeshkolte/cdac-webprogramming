@@ -13,22 +13,16 @@
       "salary": 2000000
     },
     {
-      "id": "3",
-      "name": "Sharvari",
-      "address": "Akola",
-      "salary": 1000000
-    },
-    {
       "id": "5",
       "name": "Rushikesh",
-      "address": "Sangli",
+      "address": "Nagpur",
       "salary": 500000
     },
     {
-      "id": "7",
-      "name": "Hardik",
-      "address": "Delhi",
-      "salary": 400000
+      "id": "3",
+      "name": "Sharvari",
+      "address": "Akola",
+      "salary": 2000000
     }
   ]
 }
