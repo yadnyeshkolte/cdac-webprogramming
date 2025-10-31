@@ -17,7 +17,7 @@ export const EmployeeService = {
         return res.data;
     },
     updateRec: async (rec) => {
-        const res = await axios.put(`${API_URL}/${rec.id}`)
+        const res = await axios.put(`${API_URL}/${rec.id}`, rec)
         return res.data;
     },
     deleteRec: async (id) => {
