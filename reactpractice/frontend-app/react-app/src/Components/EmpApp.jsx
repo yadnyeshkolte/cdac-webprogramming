@@ -34,14 +34,21 @@ export default function EmpApp() {
     // if I dont have written that it will work but i have to refresh the page always
   }
 
-  const handleChange = function (e) {
+  const handleChange = (e) => {
     setEmp({ ...emp, [e.target.name]: e.target.value });
   };
 
+
   function handleOnChangeEdit() {
+    console.log(emp);
+        console.log(emp.id);
+            console.log(emp.name);
+                console.log(emp.address);
+                    console.log(emp.salary);
+
     EmployeeService.updateRec(emp).then(() => {
       EmployeeService.getAll().then(setRecords);
-    });
+   });
   }
 
   const handleChangeEdit = function (e) {
