@@ -40,11 +40,6 @@ export default function EmpApp() {
 
 
   function handleOnChangeEdit() {
-    console.log(emp);
-        console.log(emp.id);
-            console.log(emp.name);
-                console.log(emp.address);
-                    console.log(emp.salary);
 
     EmployeeService.updateRec(emp).then(() => {
       EmployeeService.getAll().then(setRecords);
