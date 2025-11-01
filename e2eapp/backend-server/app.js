@@ -15,6 +15,8 @@ const db = mysql.createConnection({
     password:'982223',
     database: 'e2eappdb'
 });
+
+
 db.connect((err)=>{
     err == null ? console.log("connected") : console.error(err.message);
 })
