@@ -67,7 +67,8 @@ app.delete("/customers/:id", (req, res)=>{
         res.json({"message" : "Customer deleted successfully"});
     })
 });
-///////////////////////Start UR server/////////////////////////////////////////
+
+
 app.listen(portNo, ()=>{
     console.log(`server is running at port ${portNo}`)
 })
