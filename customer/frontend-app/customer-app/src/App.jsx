@@ -1,6 +1,5 @@
 import './App.css'
 import Customers from './components/Customer'
-import NavBar from './components/NavBar'
 
 function App() {
 
@@ -9,7 +8,6 @@ function App() {
       <h1 className="h1 text-danger">Customer Management Software</h1>
       <hr />
       
-      <NavBar />
       <Customers/>
     </>
   )

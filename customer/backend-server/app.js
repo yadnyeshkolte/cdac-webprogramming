@@ -22,10 +22,10 @@ db.connect((err)=>{
 })
 /////////////////////SQL COMMANDS//////////////////////////////
 const getAll = "select * from customer";
-const getById = "select * from customer where id = ?"
+const getById = "select * from customer where id = ?;"
 const insert = "insert into customer(fullName, phoneNo, emailAddress) values(? ,? ,?);"
-const update = "update customer set fullName = ?, phoneNo =? emailAddress = ? where id = ?";
-const delRec = "delete from customer where id  = ?"
+const update = "update customer set fullName = ?, phoneNo = ?, emailAddress = ? where id = ?;"
+const delRec = "delete from customer where id  = ?;"
 //////////////////////////////End Points////////////////////////////
 app.get("/customers", (req, res)=>{
     db.query(getAll, (err, results)=>{
