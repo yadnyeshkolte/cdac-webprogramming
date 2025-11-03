@@ -1,5 +1,6 @@
 
 import './App.css'
+import LibBook from './components/LibBook'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
     <h2>Library Management System</h2>
     <hr />
+    <LibBook/>
     </>
   )
 }

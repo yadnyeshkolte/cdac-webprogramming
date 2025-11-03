@@ -3,7 +3,7 @@ import axios from 'axios'
 const base_url = "http://localhost:1234/books" 
 
 
-export const CustomerService = {
+export const LibraryService = {
     getAll: async () => (await axios.get(base_url)).data,
     
     getById: async (id) => (await axios.get(`${base_url}/${id}`)).data,
