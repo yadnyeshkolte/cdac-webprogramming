@@ -31,8 +31,8 @@ export default function LibBook() {
     setBooks({});
   }
 
-  function handleDelete(book_id) {
-    LibraryService.delete(book_id).then(() => {
+  function handleDelete(id) {
+    LibraryService.delete(id).then(() => {
       LibraryService.getAll().then(setLibrary);
     });
   }
@@ -68,7 +68,7 @@ export default function LibBook() {
 
   const onChangeEdit = (e) => {
     setBooks({
-      book_id: e.book_id,
+      id: e.id,
       title: e.title,
       author: e.author,
       pub_year: e.pub_year,
@@ -84,18 +84,18 @@ export default function LibBook() {
           <div className="col-md-8">
             {" "}
             {/*remember to remove it */}
-            <div className="container row ">
+            <div className="container row mt-4 ">
               {library.map((c) => {
                 return (
                   <div
-                    key={c.book_id}
-                    className="card text-start col-md-3 mx-4 mb-2 bg-info-subtle"
+                    key={c.id}
+                    className="card text-start col-md-3 mx-4 mb-2 bg-primary-subtle"
                   >
                     <div className="card-body">
                       <button
                         className="btn btn-link position-absolute top-0 end-0 text-danger p-2"
                         onClick={() => {
-                          handleDelete(c.book_id);
+                          handleDelete(c.id);
                         }}
                       >
                         <i className="fa-solid fa-trash"></i> {/*delete One */}

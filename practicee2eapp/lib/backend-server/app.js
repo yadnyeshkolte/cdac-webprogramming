@@ -22,10 +22,10 @@ db.connect((err)=>{
 })
 
 const getAll = "select * from books;"
-const getById = "select * from books where book_id = ?;"
+const getById = "select * from books where id = ?;"
 const insert = "insert into books(title, author, pub_year, genere, status) values(? ,? ,?, ?, ?);"
-const update = "update books set title = ?, author = ?, pub_year = ?, genere = ?, status = ? where book_id = ?;"
-const delRec = "delete from books where book_id  = ?;"
+const update = "update books set title = ?, author = ?, pub_year = ?, genere = ?, status = ? where id = ?;"
+const delRec = "delete from books where id  = ?;"
 
 app.get("/books", (req, res)=>{
     db.query(getAll, (err, results)=>{
