@@ -5,6 +5,9 @@ function App() {
 
   return (
     <>
+      <h1 className="h1 text-danger">Customer Management Software</h1>
+      <hr />
+      
       <Customers/>
     </>
   )

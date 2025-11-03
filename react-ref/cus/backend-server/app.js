@@ -1,30 +1,32 @@
-const express = require('express')//for webhosting. 
-const mysql = require("mysql2")//for UR db access
-const cors = require("cors");//for handling cors
+const express = require('express')
+const mysql = require("mysql2")
+const cors = require("cors");
 
 const app = express();
 const portNo = 1234;
-//////////////////Handle body parsers for post operations////////
+
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
-app.use(cors());//Resolve CORS Errors. 
-/////////////////////////MySQL Connection Code//////////////////
+app.use(cors());
+
 const db = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'982223',
     database: 'e2eappdb'
 });
+
+
 db.connect((err)=>{
     err == null ? console.log("connected") : console.error(err.message);
 })
-/////////////////////SQL COMMANDS//////////////////////////////
+
 const getAll = "select * from customer";
-const getById = "select * from customer where id = ?"
+const getById = "select * from customer where id = ?;"
 const insert = "insert into customer(fullName, phoneNo, emailAddress) values(? ,? ,?);"
-const update = "update customer set fullName = ?, phoneNo =? emailAddress = ? where id = ?";
-const delRec = "delete from customer where id  = ?"
-//////////////////////////////End Points////////////////////////////
+const update = "update customer set fullName = ?, phoneNo = ?, emailAddress = ? where id = ?;"
+const delRec = "delete from customer where id  = ?;"
+
 app.get("/customers", (req, res)=>{
     db.query(getAll, (err, results)=>{
         if(err) return res.status(500).json({error : err.message});
@@ -33,7 +35,7 @@ app.get("/customers", (req, res)=>{
 })
 
 app.get("/customers/:id", (req, res)=>{
-    const { id } = req.params; //get the Id from the query string... 
+    const { id } = req.params; 
     db.query(getById, id, (err, results)=>{
         if(err) return res.status(500).json({error : err.message});
         else res.json(results)
@@ -65,7 +67,8 @@ app.delete("/customers/:id", (req, res)=>{
         res.json({"message" : "Customer deleted successfully"});
     })
 });
-///////////////////////Start UR server/////////////////////////////////////////
+
+
 app.listen(portNo, ()=>{
     console.log(`server is running at port ${portNo}`)
 })
