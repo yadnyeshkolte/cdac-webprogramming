@@ -1,5 +1,7 @@
 #root {
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
