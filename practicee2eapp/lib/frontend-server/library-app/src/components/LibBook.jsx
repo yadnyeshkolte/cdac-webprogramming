@@ -89,7 +89,7 @@ export default function LibBook() {
                 return (
                   <div
                     key={c.id}
-                    className="card text-start col-md-3 mx-4 mb-2 bg-primary-subtle"
+                    className="card text-start col-md-3 mx-4 mb-2" style={{backgroundColor:"lightgrey"}}
                   >
                     <div className="card-body">
                       <button
