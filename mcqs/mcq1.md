@@ -71,7 +71,7 @@
 
 ---
 
-**8. Which web server is NOT mentioned in the syllabus?**
+**8. Which web server is known for its high performance and event-driven architecture?**
 - a) Apache
 - b) IIS
 - c) Nginx
@@ -339,7 +339,7 @@
 
 ---
 
-**34. Which HTTP client library is promise-based and mentioned in the syllabus?**
+**34. Which HTTP client library is promise-based?**
 - a) Fetch
 - b) jQuery AJAX
 - c) Axios
