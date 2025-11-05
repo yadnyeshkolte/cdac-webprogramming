@@ -1,75 +1,74 @@
-const express = require('express')
-const mysql = require("mysql2")
-const cors = require("cors");
+const express = require("express")
+const mysql = require("mysql2");
+const cors = require("cors")
 
-const app = express();
+
+const app = express()
 const portNo = 1234;
 
-app.use(express.urlencoded({extended : true}));
-app.use(express.json());
-app.use(cors());
+
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
 
 const db = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'982223',
-    database: 'e2eappdb'
-});
-
-
-db.connect((err)=>{
-    err == null ? console.log("connected") : console.error(err.message);
+    host: "localhost",
+    user: "root",
+    password: "982223",
+    database: "e2eappdb"
 })
 
+const getAll = "select * from expenses;";
+const getbyid = "select * from expenses where id = ?;"
+const insert = "insert into expenses(amount, category, edesc, edate) values(?,?,?,?)"
+const update = "update expenses set amount = ?, category = ?, edesc = ? , edate = ? where id = ?"
+const deleteit = "delete from expenses where id = ?"
 
+db.connect((err) => {
+    err == null ? console.log("connected") : console.log("Error in it")
+})
 
-const getAll = "select * from expenses;"
-const getById = "select * from expenses where id = ?;"
-const insert = "insert into expenses(amount, category, edesc, edate) values(? ,? ,?, ?);"
-const update = "update expenses set title = ?, author = ?, pub_year = ?, genere = ?, status = ? where id = ?;"
-const delRec = "delete from expenses where id  = ?;"
+app.get("/expenses", (req, res) => {
+    db.query(getAll, (err, results) => {
+        if(err) return res.status(500).json({message: "Internal server error"})
+        else res.json(results);
+    })
+})
 
-app.get("/books", (req, res)=>{
-    db.query(getAll, (err, results)=>{
-        if(err) return res.status(500).json({error : err.message});
+app.get("/expenses/:id", (req, res) => {
+    const { id } = req.params;
+    db.query(getbyid, [id], (err, results) => {
+        if(err) return res.status(500).json({message: "Internal server error"})
         else res.json(results)
     })
+
 })
 
-app.get("/books/:id", (req, res)=>{
-    const { id } = req.params; 
-    db.query(getById, id, (err, results)=>{
-        if(err) return res.status(500).json({error : err.message});
-        else res.json(results)
+app.post("/expenses", (req, res) => {
+    const { amount, category, edesc, edate } = req.body;
+    db.query(insert, [amount, category, edesc, edate], (err, results) => {
+        if (err) return res.status(500).json({error: error.message})
+        else res.json({id : results.insertId, amount, category, edesc, edate})
     })
 })
 
-
-app.post("/books", (req, res)=>{
-    const {title, author, pub_year, genere, status } = req.body;
-    db.query(insert, [title, author, pub_year, genere, status], (err, results)=>{
-        if(err) return res.status(500).json({error : err.message});
-        else res.json({id : results.insertId, title, author, pub_year, genere, status});
+app.put("/expenses/:id", (req, res) => {
+    const { id } = req.params;
+    const { amount, category, edesc, edate } = req.body;
+    db.query(update, [ amount, category, edesc, edate, id ], (error, results)=> {
+        if (error) return res.status(500).json({error: error.message})
+        else res.json({message: "Updated Successfully"})
     })
 })
 
-app.put("/books/:id", (req, res)=>{
-    const{ id  } = req.params;
-    const {title, author, pub_year, genere, status } = req.body;
-    db.query(update, [title, author, pub_year, genere, status, id], (err, results)=>{
-        if(err) return res.status(500).json({error : err.message});
-        else res.json({"message" : "Book updated successfully"});
+app.delete("/expenses/:id", (req, res)=>{
+    const { id } = req.params;
+    db.query(deleteit, [ id ], (err, results) =>{
+        if (err) return res.status(500).json({message: error.message})
+        else res.json({message: "Deleted Successfully"})
     })
 })
 
-app.delete("/books/:id", (req, res)=>{
-    const{ id  } = req.params;
-    db.query(delRec, [id], (err, results)=>{
-        if(err) return res.status(500).json({error : err.message});
-        res.json({"message" : "Book is deleted successfully"});
-    })
-});
-
-app.listen(portNo, ()=>{
-    console.log(`server is running at port ${portNo}`)
+app.listen(portNo, ()=> {
+    console.log("Connection listening at port "+portNo)
 })
