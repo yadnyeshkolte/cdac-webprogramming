@@ -45,7 +45,7 @@ app.get("/expenses/:id", (req, res) => {
 })
 
 app.post("/expenses", (req, res) => {
-    const { amount, category, edesc, edate } = req.body;
+    const {amount, category, edesc, edate } = req.body;
     db.query(insert, [amount, category, edesc, edate], (err, results) => {
         if (err) return res.status(500).json({error: error.message})
         else res.json({id : results.insertId, amount, category, edesc, edate})

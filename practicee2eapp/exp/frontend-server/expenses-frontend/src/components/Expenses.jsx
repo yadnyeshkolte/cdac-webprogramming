@@ -9,12 +9,12 @@ export default function Expenses(){
 
     useEffect(() => {
         ExpensesServices.getAll().then(setExpen)
-    })
+    },[])
 
     const handleChange = (e) => {
         setExp({...exp, [e.target.name]: e.target.value})
     }
-    
+
     function handleAdd(){
         if(!exp?.amount || !exp?.category || !exp?.edesc || !exp?.edate){
             alert("Fill Full Form")
@@ -36,12 +36,13 @@ export default function Expenses(){
         ExpensesServices.update(exp).then(() => {ExpensesServices.getAll().then(setExpen)})
     }
     function OnChangeEdit(e){
+    const formattedDate = e.edate ? new Date(e.edate).toISOString().split('T')[0] : '';
         setExp({
             id : e.id,
             amount: e.amount,
             category: e.category,
             edesc: e.edesc,
-            edate: e.edate
+            edate: formattedDate
         })
     }
     function handleClear(){
@@ -54,14 +55,14 @@ export default function Expenses(){
                     {
                         expen.map((e) => {
                             return(
-                            <div key={e.id} className="col-md-3 mx-2 mt-3 bg-info-subtle p-3" style={{borderRadius:"40px"}}>
+                            <div key={e.id} className="col-md-3 mx-2 mt-3 bg-danger-subtle p-3" style={{borderRadius:"40px"}}>
                                 <div className="card-title">
                                     <h3>{e.amount}</h3>
                                 </div>
                                 <div className="card-body">
                                     <p>{e.category}</p>
                                     <p>{e.edesc}</p>
-                                    <p>{e.edate}</p>
+                                    <p>{e.edate.split('T')[0]}</p>
                                 </div>
                                 <button className="btn btn-danger position-relative top-0 end-0"
                                     onClick={()=>{handleDelete(e.id)}} >X</button>
@@ -72,7 +73,7 @@ export default function Expenses(){
                         })
                     }
                 </div>
-                <div className="col-md-4 bg-warning-subtle mt-2">
+                <div className="col-md-4 bg-warning-subtle mt-2 p-5">
                     <h3 className="mt-4">Add/Update Expenses</h3>
                     <hr />
                     <div className="">
@@ -103,7 +104,7 @@ export default function Expenses(){
                         <input 
                             className="form-control" 
                             type="date" 
-                            placeholder="Enter the amount here"
+                            // placeholder="Enter the amount here"
                             value={exp?.edate || ""}
                             name="edate"
                             onChange={handleChange}
