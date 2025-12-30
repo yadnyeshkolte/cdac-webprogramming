@@ -1,0 +1,37 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    p{
+        border:2px solid salmon;
+        display: none;
+    }
+</style>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus autem voluptas minus modi harum in voluptatem aperiam eum quidem distinctio nisi omnis id eius consequatur laborum amet, soluta ipsa ex!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsum eius, fugiat accusamus repellendus, porro voluptate dignissimos, velit mollitia ab nisi quo aliquid asperiores. Illo, voluptatem. Illum itaque nesciunt incidunt!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ullam officia quibusdam commodi alias quidem! Maiores at et facere vero possimus placeat earum quisquam, officia, nam deserunt architecto omnis quod?
+</p>
+<button>Fade In</button>
+<script>
+    $(function(){
+        $('button').click(function(){
+            //$('p').hide();
+            //$('p').show();
+            //$('p').toggle();
+
+            //$('p').slideUp(5000);
+            //$('p').slideDown(5000);
+            //$('p').slideToggle(5000);
+
+            // $('p').fadeIn(5000);
+            // $('p').fadeOut(5000);
+            //$('p').fadeToggle(5000);
+
+            $('p').fadeToggle(5000, function(){
+                if($('button').html() == 'Fade In')
+                    $('button').html('Fade Out')
+                else
+                    $('button').html('Fade In')
+            });
+
+        });
+    });
+</script>

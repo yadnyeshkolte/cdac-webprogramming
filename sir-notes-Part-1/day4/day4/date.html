@@ -1,0 +1,14 @@
+<script>
+    const now = new Date();
+    document.write(now);
+
+    document.write("<br>Year: "+now.getFullYear());
+    document.write("<br>Month: "+now.getMonth());
+    
+    //Year, Month, Date, Hour, Minute, Second
+    const olddate = new Date(2025, 2, 15, 16, 52, 10);
+    document.write("<br>Old Date: "+ olddate); 
+
+    let diff = Math.floor((now - olddate)/(1000*60*60*24))
+    document.write("<br>Difference: "+ diff)
+</script>

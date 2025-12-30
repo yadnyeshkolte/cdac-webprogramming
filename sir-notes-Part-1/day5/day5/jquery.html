@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    p#p1 {
+        color: blueviolet;
+    }
+</style>
+<p>This is a paragraph</p>
+<p id="p1">This is a paragraph with id p1</p>
+<p class="paraClass">This is a para with class paraClass</p>
+<span class="paraClass">This is a span with class paraClass</span>
+<img src="img/cdac.jpg" width="100" id="image">
+<input id="aadhaar" name="aadhaar" type="text">
+<script>
+    $(function(){
+        $('#p1').html("This is the changed paragraph").remove();
+        $('.paraClass').css({"backgroundColour":"yellow", "fontSize":"24px"});
+        $("#image").attr({"src":"img/cdac.png", "width":"200"});
+        $('#aadhaar').val("123456789012");
+        alert( $('#aadhaar').val())
+    });
+</script>

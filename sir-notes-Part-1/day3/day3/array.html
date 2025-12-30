@@ -1,0 +1,46 @@
+<script>
+    let emp = new Array();
+    console.log(emp)
+
+    let emp1 = new Array("Anoop", "Sanjay");
+    console.log(emp1)
+    console.log(emp1[1])
+    console.log(emp1.length)
+    
+    emp1.push("Balaji");
+    console.log(emp1)
+
+    emp1[5] = "Harsh";
+    console.log(emp1)
+
+    emp1.push(3)
+    emp1.push(3.14)
+    emp1.push(true);
+    console.log(emp1)
+
+    let students = ['Ashish', 'Ashutosh']
+    console.log(students);
+    
+    for(i=0;i<emp1.length;i++)
+    {
+        document.write(emp1[i]+"<br>");
+    }
+
+    for(index in emp1)
+    {
+        document.write(emp1[index]+"<br>");
+    }
+
+    for(elt of emp1)
+    {
+        document.write(elt+"<br>");
+    }
+
+    console.log(emp1.reverse())
+    console.log(emp1.sort())
+    //emp1.slice()
+    emp1.splice(3,2);
+    console.log(emp1)
+    emp1.splice(3, 0, "Mahesh", "Karuna");
+    console.log(emp1)
+</script>

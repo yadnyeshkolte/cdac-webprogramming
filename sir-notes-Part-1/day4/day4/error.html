@@ -1,0 +1,22 @@
+<script>
+    try {
+        showAlert("This is an error");
+    }
+    catch(error)
+    {
+        document.write(error)
+    }
+
+    try {
+        let x
+        if(x == 0) throw "Variable is zero";
+        if(x == "") throw "Variable is empty";
+        if(x > 0) throw "Variable is positive";
+        if(x < 0) throw "Variable is negative";
+        if(x == undefined) throw "Variable has no value";
+    }
+    catch(error)
+    {
+        document.write(error)
+    }
+</script>

@@ -1,0 +1,27 @@
+<form method="POST" action="save.php" enctype="multipart/form-data">
+    Username<span style="color:red">*</span> <input type="text" name="username" placeholder="Enter Username" required> <br>
+    Password<span style="color:red">*</span> <input type="password" name="password" placeholder="Enter Password" required> <br>
+    Email <input type="email" name="email"> <br>
+    Address <textarea name="addr"></textarea> <br>
+    Gender <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female <br>
+    Date of Birth <input type="date" name="dob">
+    <input type="datetime-local" name="dob"> <br>
+    Skills <input type="checkbox" name="skills"> C++
+    <input type="checkbox" name="skills"> HTML
+    <input type="checkbox" name="skills"> Node
+    <input type="checkbox" name="skills"> .NET <br>
+    Employee ID <input type="number" name="id" min="0" max="100" step="5"> <br>
+    Course <select name="course">
+        <option>Select Course</option>
+        <option value="dac">DAC</option>
+        <option value="ditiss">DITISS</option>
+        <option value="dbda">DBDA</option>
+        <option value="diot">DIoT</option>
+    </select> <br>
+    Resume (pdf)<input type="file" name="resume" accept="application/pdf"> <br>
+    <input type="reset" value="Reset">
+    <!-- <input type="button" value="Register"> -->
+    <!-- <input type="submit" value="Login"> -->
+    <button>Login</button>
+</form>

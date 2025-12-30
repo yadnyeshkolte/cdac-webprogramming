@@ -1,0 +1,34 @@
+<script>
+     // https://regex101.com
+    // Digit [0-9] 
+    // Lowercase letter [a-z]
+    // Uppercase letter [A-Z]
+    // Special Character [@$%&]
+    //  {n}: exact n times {n,m}: minimum n and maximum m
+    // ^ start of pattern, $ end of pattern
+    // + minimum 1, *: 0 or more
+    // 5 digits
+    //var pattern = /[0-9]{5}/;
+    // Only 5 digits
+    //var pattern = /^[0-9]{5}$/;
+
+    // only vowels
+    // var pattern = /[aeiou]/;
+    // No vowels
+    // var pattern = /[^aeiou]/
+
+    // Positive Lookahead    
+    //(?=.*[a-z]): 1 lowercase letter in string
+    // (?=.*[A-Z]): 1 Uppercase letter in string
+    // (?=.*[@#$%^&*]): 1 Special characters in the string
+    // (?=.*[0-9]): 1 digit in string
+    // (?=.{8,}): Minimum 8 character in the string
+
+
+    let pattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    let input = "ABCDE1234EE"
+    if(pattern.test(input))
+        document.write("pattern matches")
+    else
+        document.write("pattern mismatch")
+</script>

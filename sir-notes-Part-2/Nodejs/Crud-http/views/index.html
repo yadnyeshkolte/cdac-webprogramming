@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            background-color: darkcyan; padding: 5px; margin: 2px; color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Management Software</h1>
+    <nav style="text-align: center; background-color: lightcyan; padding: 10px; margin: 2px;">
+        <a href="add">Add Record</a>
+        <a href="update">Update Record</a>
+        <a href="delete">Delete Record</a>
+    </nav>
+    <hr>
+    <div id="list"></div>
+    <script>
+           // fetch is an API provided by JS to perform async operations on the Web pages. Most of the REST APIs are called using fetch function. 
+           //it returns a Promise object. 
+
+        fetch('/api/read').then((res)=>{
+            res.json().then(data => {
+                document.getElementById('list').innerHTML = data.map(d => `<p>Id ${d.id} : ${d.name}`).join('');
+            })
+        }).catch((err)=>{
+            console.error(err.message)
+        })
+    </script>
+</body>
+</html>

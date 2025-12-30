@@ -1,0 +1,23 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    #div1 {
+        border: 2px solid blue;
+        width: 300px;
+        height: 500px;
+
+    }
+</style>
+<div id="div1"> This is a reference div</div>
+<script>
+    $(function(){
+        //$("#div1").append($("<img>").attr({"src":"img/balaji.jpg", "width":"200", "id":"myImage"})
+        //.css("borderRadius", "10px").addClass("imgClass")) 
+        
+        // $("#div1").before($("<img>").attr({"src":"img/balaji.jpg", "width":"200", "id":"myImage"})
+        // .css("borderRadius", "10px").addClass("imgClass")) 
+
+        $("#div1").after($("<img>")
+        .attr({"src":"img/balaji.jpg", "width":"200", "id":"myImage"})
+        .css("borderRadius", "10px").addClass("imgClass")) 
+    });
+</script>

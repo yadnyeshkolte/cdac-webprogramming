@@ -1,0 +1,31 @@
+<script>
+    class auto{
+        constructor(name, country)
+        {
+            this.name = name
+            this.country = country
+        }
+
+        showInfo() {
+            return this.name + " - " + this.country
+        }
+    }
+
+    class car extends auto {
+        constructor(name, country, model)
+        {
+            super(name, country)
+            this.model = model
+        }
+        showInfo() {
+            return this.name + " - " + this.model + ", " + this.country
+        }
+    } 
+
+
+    const myAuto = new auto("Fiat", "Italy");
+    document.write(myAuto.showInfo())
+
+    const myCar = new car("Fiat", "Italy", "Abarth");
+    document.write(myCar.showInfo())
+</script>

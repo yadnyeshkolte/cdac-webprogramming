@@ -1,0 +1,34 @@
+<style>
+    p#p1 {
+        color: blueviolet;
+    }
+</style>
+<p>This is a paragraph</p>
+<p id="p1">This is a paragraph with id p1</p>
+<p class="paraClass">This is a para with class paraClass</p>
+<span class="paraClass">This is a span with class paraClass</span>
+<img src="img/cdac.jpg" width="100" id="image">
+<input id="aadhaar" name="aadhaar" type="text">
+<script>
+    let para = document.getElementById("p1");
+    console.log(para)
+    para.innerHTML = "This is the changed paragraph";
+
+    let classElts = document.getElementsByClassName("paraClass");
+    console.log(classElts)
+    classElts[1].style.backgroundColor = "yellow";
+
+    for(element of classElts){
+        element.style.fontSize = "24px";
+    }
+
+    document.getElementById("image").src="img/cdac.png"; 
+    document.getElementById("image").width="200"; 
+
+    document.getElementById("aadhaar").value = "123456789012";
+
+    alert(document.getElementById("aadhaar").value)
+
+    para.remove();
+
+</script>

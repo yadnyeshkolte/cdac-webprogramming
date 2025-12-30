@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+</head>
+<body>
+    <h1>Employee Management Software</h1>
+    <hr/>
+    <div>
+        <form action="/details" method="post">
+            <p>Enter UR Name: <input type="text" placeholder="Name Please!" name="txtName" required/></p>
+            <p>Enter UR EmailAddress: <input type="email" placeholder="Email Please!" name="txtEmail" required/></p>
+            <p>
+                Enter UR location:
+                <datalist id="dlCities">
+                    <option>Bangalore</option>
+                    <option>Chennai</option>
+                    <option>Hyderabad</option>
+                    <option>Mumbai</option>
+                    <option>New Delhi</option>
+                    <option>Kolkatta</option>
+                </datalist>
+                <input list="dlCities" name="txtCity"/>
+            </p>
+            <button>Register</button>
+        </form>
+    </div>
+</body>
+</html>

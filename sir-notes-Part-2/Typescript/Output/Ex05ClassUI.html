@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Ex05ClassesAndObjects.js"></script>
+    <script>
+        const empRepo = new EmpRepo();
+        window.addEventListener("load", function(){
+            empRepo.addEmployee(new Employee(124, "Bob","bob@example.com","60000"));
+            empRepo.addEmployee(new Employee(125, "Charlie","charlie@example.com","70000"));
+            let records  = empRepo.getAllEmployees();
+            const tbl = document.getElementById("tbl");
+            for (const element of records) {
+                const tr = `<tr><td>${element.id}</td><td>${element.name}</td><td>${element.salary}</td><td>${element.email}</td></tr>`;
+                tbl.querySelector("tbody").innerHTML += tr;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Employee Management Software</h1>
+    <hr>
+    <table border="1" id="tbl">
+        <thead>
+            <tr>
+                <th>Emp No</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Dept</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<script>
+    let obj = {
+        name: "Samiksha",
+        mobile: [888, 999],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        education: [{degree: "BTech", passingYear: "2010"},
+            {degree: "MS", passingYear: "2016"},
+            {degree: "PhD", passingYear: "2025"}
+        ] 
+    }
+
+    console.log(obj)
+    console.log(obj.name)
+    console.log(obj.mobile[0])
+    console.log(obj.address.city)
+    console.log(obj.education[2].passingYear)
+
+    obj.salary = "150000"
+    obj["Full Name"] = "Samiksha Singh"
+    // Don't add space in properties of an object
+
+    console.log(obj)
+
+    obj1 = {
+        name: "Anoop",
+        designation: "Sc E",
+        organization: "CDAC",
+        qualification: "MS"
+    }
+
+    obj1.qualification = null
+    delete obj1['qualification']
+
+    for (key in obj1)
+    {
+        document.write(obj1[key]+"<br>")
+    }
+</script>

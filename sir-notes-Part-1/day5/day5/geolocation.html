@@ -1,0 +1,27 @@
+Latitude: <span id="lat"></span> <br>
+Longitude: <span id="long"></span> <br>
+Location: <span id="location"></span> <br>
+<button onclick="showLocation()">Show Location</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function showLocation()
+    {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos){
+                lat=pos.coords.latitude
+                long=pos.coords.longitude
+                document.getElementById("lat").innerHTML=lat
+                document.getElementById("long").innerHTML=long
+                url = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+                params = {latitude:lat, longitude: long}
+                $.get(url, params, function(data){
+                    console.log(data)
+                    $('#location').html(data.city+", "+data.principalSubdivision + " - "+ data.postcode)
+                });
+            })
+        }
+        else {
+            alert("Geolocation not supported");
+        }
+    }  
+</script>

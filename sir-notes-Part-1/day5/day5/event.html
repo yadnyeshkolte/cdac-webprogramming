@@ -1,0 +1,12 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<img src="img/off.jpg" id="bulb">
+<script>
+   $(function(){
+        $('#bulb')
+        .mouseover(function(){
+            $(this).attr("src", "img/on.jpg")})
+            .mouseout(function(){
+                $(this).attr("src", "img/off.jpg")})
+   });
+
+</script>

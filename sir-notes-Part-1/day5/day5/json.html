@@ -1,0 +1,21 @@
+<script>
+let obj = {
+        name: "Samiksha",
+        mobile: [888, 999],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        education: [{degree: "BTech", passingYear: "2010"},
+            {degree: "MS", passingYear: "2016"},
+            {degree: "PhD", passingYear: "2025"}
+        ] 
+    }
+
+    let json = JSON.stringify(obj);
+    document.write(json);
+
+    let obj1 = JSON.parse(json);
+    console.log(obj1);
+    
+</script>

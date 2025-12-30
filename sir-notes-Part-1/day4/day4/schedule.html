@@ -1,0 +1,26 @@
+<p id="datetime"></p>
+<button onclick="stopWatch()">Stop Watch</button>
+<script>
+    // function showAlert()
+    // {
+    //     // alert('5 Seconds Passed')
+    //     const now = new Date()
+    //     document.write(now)
+    // }
+
+    // setTimeout(showAlert, 5000)
+
+    function showDate()
+    {
+        const now = new Date();
+        document.getElementById("datetime").innerHTML = now;
+
+    }
+    let newTimeUpdate = setInterval(showDate,1000)
+
+    function stopWatch()
+    {
+        clearInterval(newTimeUpdate);
+    }
+
+</script>

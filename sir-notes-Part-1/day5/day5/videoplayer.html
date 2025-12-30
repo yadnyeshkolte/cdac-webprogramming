@@ -1,0 +1,15 @@
+<input type="file" id="file" value="Choose Video" accept="video/*" onchange="showPreview()">
+<video width="200" id="vid" controls>
+    <source src="" type="video/mp4">
+</video>
+<script>
+    function showPreview()
+    {
+        let player = document.getElementById("vid");
+        let fileBrowser = document.getElementById("file");
+        let fileName = fileBrowser.files[0];
+        let url = URL.createObjectURL(fileName)
+        player.src=url;
+        player.play();
+    }
+</script>

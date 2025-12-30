@@ -1,0 +1,25 @@
+<script>
+    function add(a,b)
+    {
+        let c = a + b
+        return c
+    }
+
+    let exp = function (a, b) {return a**b}
+
+    let multiplication = (a,b) => {return a*b}
+
+    document.write("<br>Addition "+add(2,3))
+    document.write("<br>Exponentiation "+exp(2,3))
+    document.write("<br>Multiplication "+multiplication(2,3))
+
+    function multiplier(multiplicationFactor)
+    {
+        let fn = (num)=>{return num* multiplicationFactor}
+        return fn;
+    }
+
+    let double = multiplier(2) //(num)=>{return num*2}
+    console.log(double)
+    console.log(double(35))
+</script>

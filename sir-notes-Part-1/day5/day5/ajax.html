@@ -1,0 +1,42 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    #suggestions{
+        width: 200px;
+        border: 2px solid salmon;
+        display: none;
+    }
+    ul {
+        margin:0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        padding:3px;
+        cursor: pointer;
+    }
+    li:hover {
+        background-color: coral;
+
+    }
+</style>
+<input type="text" id="searchKey">
+<div id="suggestions"></div>
+<script>
+    $(function(){
+        $('#searchKey').keyup(function(){
+            let val = $(this).val();
+            if(val.length>0)
+            {
+                $.post("search.html", {searchKey: val}, 
+                    function(data){
+                        $("#suggestions").html(data).show();
+                    }
+                );
+            }
+            else 
+            {
+                $("#suggestions").hide();
+            }
+        });
+    });
+</script>

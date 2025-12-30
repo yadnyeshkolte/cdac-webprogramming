@@ -1,0 +1,22 @@
+<style>
+    #div1 {
+        border: 2px solid blue;
+        width: 300px;
+        height: 500px;
+
+    }
+</style>
+<div id="div1"> This is a reference div</div>
+<script>
+    let image = document.createElement("img");
+    image.src = "img/balaji.jpg";
+    image.width = "200"
+    image.style.borderRadius = "10px";
+    image.id="myImage";
+    image.className="imgClass";
+
+    div=document.getElementById("div1");
+    // div.appendChild(image);
+
+    document.body.insertBefore(image,div)
+</script>

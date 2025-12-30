@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        const url = "api/contacts";
+        $(document).ready(function(){
+            $.get(url, function(data, status){
+                console.log(data);
+                $("div:first").innerHTML = data.map(contact => {
+                    const contactDiv = `<div style="background-color: lightblue; margin:5px; padding:5px; width: 300px; display: inline-block;">
+                        <p>${contact.contactName}</p>
+                        <p>${contact.emailAddress}</p>
+                        <p>${contact.phoneNo}</p>
+                    </div>`;
+                    $('body').append(contactDiv);
+                }).join('');
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <h1>Contact Management Software</h1>
+    
+</body>
+</html>

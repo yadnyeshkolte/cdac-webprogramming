@@ -1,0 +1,25 @@
+<style>
+    #webcam{
+        height: 480px;
+        width: 640px;
+        border: 2px solid purple;
+    }
+</style>
+<video id="webcam" controls></video>
+<button onclick="startCamera()">Start Camera</button>
+<script>
+    function startCamera()
+    {
+        let video = document.getElementById("webcam");
+        navigator.mediaDevices.getUserMedia({
+            audio: true, video: true
+        }).then((stream)=> {
+            video.srcObject=stream;
+            video.onloadedmetadata = function(e) {
+                video.play();
+            }
+        }
+
+        )
+    }
+</script>
